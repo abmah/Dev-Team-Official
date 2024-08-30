@@ -1,11 +1,109 @@
+/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* Global Styles */
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  color: white;
+  background-color: black;
 }
 
+/* header */
+.nav-container * {
+  opacity: 1;
+}
+
+.nav-container {
+  width: fit-content;
+
+  display: flex;
+  margin: 0;
+  justify-content: space-between;
+}
+
+.rolling-text {
+  display: inline-block;
+  font-family: ivypresto-display, serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 4rem;
+  line-height: 5rem;
+  height: 5rem;
+  letter-spacing: 0px;
+  text-decoration: none;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.rolling-text:hover .letter,
+.rolling-text.play .letter {
+  transform: translateY(-100%);
+}
+
+.rolling-text .block:last-child {
+  color: rgb(198, 198, 198);
+}
+
+.rolling-text .letter {
+  display: inline-block;
+  transition: transform .6s ease-in-out;
+}
+
+.letter:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.letter:nth-child(2) {
+  transition-delay: 0.015s;
+}
+
+.letter:nth-child(3) {
+  transition-delay: 0.03s;
+}
+
+.letter:nth-child(4) {
+  transition-delay: 0.045s;
+}
+
+.letter:nth-child(5) {
+  transition-delay: 0.06s;
+}
+
+.letter:nth-child(6) {
+  transition-delay: 0.075s;
+}
+
+.letter:nth-child(7) {
+  transition-delay: 0.09s;
+}
+
+.letter:nth-child(8) {
+  transition-delay: 0.105s;
+}
+
+.letter:nth-child(9) {
+  transition-delay: 0.12s;
+}
+
+.letter:nth-child(10) {
+  transition-delay: 0.135s;
+}
+
+
+.nav-container {
+  flex-direction: column;
+}
+
+.rolling-text {
+  font-size: 3rem;
+  line-height: 4rem;
+  height: 4rem;
+}
+
+/* WebGL Container - Fixed background layer */
 .webgl {
   position: fixed;
   top: 0;
@@ -14,66 +112,384 @@ body {
   z-index: -1;
 }
 
+/* Above-the-Fold Section - Full screen hero section */
 .above-the-fold {
-  width: 100%;
+  background-color: black;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .above-the-fold h1 {
   margin: 0;
   font-size: 7vw;
   color: aliceblue;
-  mix-blend-mode: difference;
+  /* Uncomment to apply a different blend mode */
+  /* mix-blend-mode: difference; */
 }
 
+/* Text Container in Above-the-Fold Section */
+.above-the-fold-text-container {
+  width: 50%;
+}
 
+.above-the-fold-text {
+  text-align: center;
+}
 
+/* Scroll More Text - Positioned at the bottom of the above-the-fold section */
+.scroll-more-text {
+  bottom: 0;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  font-weight: 100;
+  font-size: large;
+  opacity: 0;
+}
 
-.card {
+/* Blink Animation for Scroll More Text */
+@keyframes blink-animation {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Global Headings */
+h1 {
+  position: relative;
+  height: 80px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+}
+
+/* Global Paragraphs */
+p {
+  margin-bottom: 8rem;
+  font-size: clamp(20px, 5vw, 50px);
+  padding: 0 5%;
+  color: white;
+  font-weight: 200;
+  margin-top: 0;
+}
+
+/* Span Element - Used for text with reduced opacity */
+span {
+  opacity: .1;
+}
+
+/* Who We Are Section */
+.who-we-are {
+  padding-top: 200px;
+  background-color: black;
+  /* Uncomment to set full width */
+  /* width: 100vw; */
+}
+
+/* Team Mission Section */
+.team-mission {
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Where We Are Based Text - Styling for text with specific alignment */
+.where-we-are-based-text {
+  font-weight: 200;
+  text-align: start;
+  margin: 0;
+}
+
+/* WWAB Card - Card styling within the 'Where We Are Based' section */
+.wwab-card {
+  padding: 0 5%;
+  font-size: clamp(20px, 5vw, 50px);
+  position: relative;
+}
+
+/* Team Section */
+.team {
+  background-color: black;
+  /* Uncomment to set a specific height */
+  /* height: 3000px; */
+}
+
+/* Space Section - For adding vertical spacing */
+.space {
+  height: 400px;
+}
+
+/* Founders Section */
+.founders {
+  background-color: black;
+  position: relative;
+  /* Uncomment to set a specific height */
+  height: 1700px;
+}
+
+/* Card Component - Old CSS */
+.card {
+  top: 20%;
+  display: flex;
+  position: absolute;
   /* width: 350px; */
+  z-index: 3;
   margin-bottom: 100px;
   margin-top: 100px;
+  right: 20%;
 }
 
-.card img {
-  width: 280px;
-  height: 400px;
-  object-fit: cover;
-}
 
 .card-info {
+  height: 500px;
   margin: 0 20px;
-  width: 200px;
+  width: 600px;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
-  height: fit-content;
   padding: 6px;
+  border: 1px solid rgba(66, 66, 66, 0.279);
 
 }
 
+.card-info .name {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
 
-.card-left {
-  flex-direction: row-reverse;
+.card-info .position,
+.card-info .bio {
+  font-weight: 200;
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.card .bio {
+  padding: 0;
+  font-size: 2rem;
 }
 
 
+
+.card img.swipeimage {
+  position: fixed;
+  top: 0;
+
+  left: 0;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  z-index: 12;
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/* Card Left - Reverse direction for specific cards */
+.card-second {
+  top: 55%;
+}
+
+/* Cards Container - Wrapper for all cards */
 .cards-container {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-
-
+/* Responsive Styles for Smaller Screens */
 @media screen and (max-width: 768px) {
-
   .card {
     flex-direction: column;
   }
+}
 
+
+.our-team {
+  height: 1200px;
+  background-color: black;
+
+}
+
+
+
+/* <div class="member-card">
+<div class="member-card-name">mootasim</div>
+<div class="member-card-role">certified software engineer</div>
+<div class="member-card-bio">yo i like latinas</div>
+</div> */
+
+.memebers-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.member-card {
+  height: 200px;
+  width: 200px;
+  border: 1px solid rgba(66, 66, 66, 0.279);
+}
+
+.member-card-name {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+.member-card-role {
+  font-weight: 200;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+}
+
+.member-card-bio {
+  font-weight: 200;
+  margin-bottom: 0;
+  font-size: 1.rem;
+}
+
+
+/* header menu button */
+
+.nav-container {
+  position: fixed;
+  right: 90px;
+  top: 20px;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity .2s ease;
+  pointer-events: none;
+  background-color: rgba(83, 83, 83, 0.5);
+}
+
+#container {
+
+  width: 50px;
+  height: 50px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.nav-container.shown {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#container {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 100;
+}
+
+#checkbox {
+  /* checkbox is hidden*/
+  display: none
+}
+
+#icon-container {
+  cursor: pointer;
+  display: block;
+  height: 30px;
+  width: 30px;
+}
+
+/* common styles*/
+.icon-menu,
+.icon-menu::before,
+.icon-menu::after,
+.icon-close,
+.icon-close::before,
+.icon-close::after {
+  content: '';
+  display: block;
+  height: 2.7px;
+  position: absolute;
+  width: 28px;
+  border-radius: 20px;
+  transition: top ease 0.3s, transform ease 0.3s 0.3s, background 0.3s ease 0.3s;
+  background: #ffffff;
+}
+
+
+/* bottom line of hamburger */
+.icon-menu::before {
+  top: -7px;
+  transition: background ease 0.3s, top ease 0.3s 0.3s, transform ease 0.3s;
+}
+
+/* top line of hamburger */
+.icon-menu::after {
+  top: 7px;
+  transition: background ease 0.3s, top ease 0.3s 0.3s, transform ease 0.3s;
+}
+
+.icon-close {
+  background: transparent;
+}
+
+/* line one of close icon */
+.icon-close::before {
+  transform: rotate(45deg);
+  top: 0px;
+  background: #ffffff;
+}
+
+/* line two of close icon */
+.icon-close::after {
+  transform: rotate(-45deg);
+  top: 0px;
+  background: #ffffff;
+}
+
+#icon {
+  top: 20;
+  transition: background ease 0.3s, top ease 0.3s 0.3s, transform ease 0.3s;
+}
+
+
+
+footer {
+  background-color: black;
+  border-top: 1px solid rgba(119, 119, 119, 0.136);
+}
+
+
+.footer-text {
+  margin: 0;
+  /* padding: 0; */
+}
+
+.footer-made-by {
+
+  font-size: 16px;
+
+}
+
+.footer-made-by a {
+  color: rgb(238, 111, 8);
+  font-weight: 300;
 }

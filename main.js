@@ -6,8 +6,10 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import Lenis from 'lenis';
 import projectState from "./public/qadan4.json";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
-
+import gsap from 'gsap';
 
 const sizes = {
   width: window.innerWidth,
@@ -17,11 +19,12 @@ const sizes = {
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000);
-camera.position.set(3, 10, 5);
+camera.position.set(5.468, 2.333, 20.9404);
 // camera.lookAt(0, 0, 0);
+camera.lookAt(10, -10, 50);
 const renderer = new THREE.WebGLRenderer({
   canvas: document.getElementById('webgl'),
-  // alpha: true,
+  alpha: true,
   antialias: true
 });
 
@@ -51,7 +54,7 @@ gltfLoader.setDRACOLoader(dracoLoader);
 
 let college
 
-gltfLoader.load("untitled.glb", (gltf) => {
+gltfLoader.load("1.glb", (gltf) => {
   college = gltf.scene
 
   college.scale.set(5, 5, 5)
@@ -60,8 +63,8 @@ gltfLoader.load("untitled.glb", (gltf) => {
 });
 
 // fog
-const fog = new THREE.Fog(0xfffff4, -4, 30);
-scene.fog = fog
+const fog = new THREE.Fog(0xfffff4, -4, 40);
+// scene.fog = fog
 
 
 
@@ -88,8 +91,8 @@ const cameraObject = sheet.object("Camera", {
 });
 
 cameraObject.onValuesChange((values) => {
-  camera.rotation.set(values.rotation.x, values.rotation.y, values.rotation.z);
-  camera.position.set(values.position.x, values.position.y, values.position.z);
+  // camera.rotation.set(values.rotation.x, values.rotation.y, values.rotation.z);
+  // camera.position.set(values.position.x, values.position.y, values.position.z);
 });
 
 
@@ -99,14 +102,15 @@ const lenis = new Lenis({
 });
 
 lenis.on("scroll", (e) => {
-  sheet.sequence.position = e.progress * sequenceLength;
+  // sheet.sequence.position = e.progress * sequenceLength;
 });
-
+let amplitude = 0.1; // Adjust this value for the range of rotation
+let frequency = 0.1;
 
 function raf(time) {
   lenis.raf(time);
   if (college) {
-    // college.rotation.y += 0.001
+    college.rotation.y = amplitude * Math.sin(frequency * time / 500);
   }
 
   renderer.render(scene, camera);
@@ -126,3 +130,53 @@ window.addEventListener('resize', () => {
   camera.updateProjectionMatrix();
   renderer.setSize(sizes.width, sizes.height);
 });
+
+
+gsap.to('.wwab-card', {
+  scrollTrigger: {
+    trigger: '.where-we-are-based',
+    start: 'top top',
+    end: '+=1700',
+    scrub: 1,
+    // markers: true,
+    pin: true
+  },
+})
+
+
+
+
+
+
+
+
+gsap.to(camera.position, {
+  x: -2.234,
+  y: 2.333,
+  z: -7.9702,
+  scrollTrigger: {
+    trigger: '.where-we-are-based',
+    start: 'top top',
+    end: '+=200',
+    scrub: 1,
+    // markers: true
+  },
+})
+
+
+
+
+
+
+
+
+gsap.to('.founders', {
+  scrollTrigger: {
+    trigger: '.our-founders-text',
+    start: 'top top',
+    end: '+=1200',
+    scrub: 1,
+    // markers: true,
+    pin: true
+  },
+})

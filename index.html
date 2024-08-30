@@ -11,258 +11,196 @@
 <body>
   <div id="app"></div>
   <script type="module" src="/main.js"></script>
+  <script type="module" src="animations.js"></script>
   <canvas id="webgl" class="webgl"></canvas>
 
+
+  <div id="container">
+    <input type="checkbox" id="checkbox" />
+    <h1 id="icon-container">
+      <div id="icon" class="icon-menu" />
+    </h1>
+  </div>
+
+  <nav class="nav-container">
+    <a href="#" class="rolling-text">Home</a>
+    <a href="#" class="rolling-text">Projects</a>
+    <!-- <a href="#" class="rolling-text">About</a>
+    <a href="#" class="rolling-text">Contact us</a> -->
+  </nav>
+
   <div class="above-the-fold">
-    <h1>Dev Team</h1>
-    <h1>Welcome to our college</h1>
+    <div class="above-the-fold-text-container">
+      <h1 class="above-the-fold-text">Welcome to</h1>
+      <h1 class="above-the-fold-text">Dev Team</h1>
+    </div>
+    <p class="scroll-more-text">scroll to learn more</p>
   </div>
-  <div class="cards-container">
+
+  <div class="who-we-are">
+    <p class="fade-in-text">Dev Team’s mission is to equip Computer Science students with practical skills for the tech
+      industry through
+      hands-on programming challenges, workshops, and projects. We aim to bridge the gap between academic learning and
+      industry demands, preparing students to excel and lead in their careers.</p>
+    <p class="fade-in-text">With the support of Al-Balqa Applied University and a vibrant community of over 1000
+      students, Dev Team fosters a
+      collaborative environment where innovation thrives.</p>
+  </div>
+
+
+  <div class="where-we-are-based">
+
+    <p class="where-we-are-based-text fade-in-text">
+      Here is where we started and where we are currently based.
+    </p>
+
+  </div>
+
+  <div class="team">
+    <div class="space"></div>
+    <p class="our-team-text fade-in-text">Al-Balqa Applied University</p>
+    <p class="our-team-text fade-in-text">We started as a small group, helping students find exam resources. As
+      we grew, we decided to formalize our efforts and approached the university chairman with our idea. He approved,
+      and that’s how Dev Team began, evolving from a simple initiative into a thriving community.</p>
+    <div class="space"></div>
+  </div>
+
+
+  <div class="founders">
+    <p class="fade-in-text our-founders-text">Our Founders</p>
+
     <div class="card">
-
-      <img src="qadan.png" alt="member-element">
       <div class="card-info">
-        <h2 class="name">hello im qadan</h2>
-        <p class="position">team leader</p>
+        <h2 class="name">mohammad qadan</h2>
+        <p class="position">*Team Leader</p>
         <p class="bio">
-          as a team leader i have a lot of experience in the field.
+          Hello, I'm Qadan, the team leader of Dev Team. With extensive experience in the field, I guide our efforts
+          to
+          equip students with the practical skills needed for success in the tech industry.
         </p>
       </div>
+      <img class="swipeimage" src="public/qadan.png">
     </div>
 
-    <div class="card card-left">
-      <img src="malkawi.png" alt="member-element">
+    <div class="card card-second">
       <div class="card-info">
-        <h2 class="name">hello im malkawi</h2>
-        <p class="position">team leader 2</p>
+        <h2 class="name">Mohammad Malkawi</h2>
+        <p class="position">*Co-Leader.</p>
         <p class="bio">
-          as a team leader two i have a lot of experience in the field.
+          With extensive industry experience, I help guide our team in equipping students with the skills needed for
+          successful tech careers.
         </p>
       </div>
+      <img class="swipeimage" src="public/malkawi.png">
     </div>
-    <div class="card card">
-      <img src="abd.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im abd</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
+    <div class="space"></div>
+
+
+  </div>
+
+  <!-- <div class="space"></div> -->
+
+
+
+
+
+  </div>
+
+
+  <div class="our-team">
+
+    <p class="our-team-text fade-in-text">Our Team</p>
+
+    <div class="memebers-cards">
+      <div class="member-card">
+        <div class="member-card-name">mootasim</div>
+        <div class="member-card-role">*certified engineer</div>
+        <div class="member-card-bio">yo i like latinas and one time i lived in liverpool here is some info about
+          mbrother khalid</div>
       </div>
-    </div>
-    <div class="card card-left">
-      <img src="amjad.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im ahmad</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
+      <div class="member-card">
+        <div class="member-card-name">mootasim</div>
+        <div class="member-card-role">*certified engineer</div>
+        <div class="member-card-bio">yo i like latinas and one time i lived in liverpool here is some info about
+          mbrother khalid</div>
       </div>
-    </div>
-    <div class="card card">
-      <img src="ahmad.png" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im ahmad</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
+      <div class="member-card">
+        <div class="member-card-name">mootasim</div>
+        <div class="member-card-role">*certified engineer</div>
+        <div class="member-card-bio">yo i like latinas and one time i lived in liverpool here is some info about
+          mbrother khalid</div>
       </div>
-    </div>
-    <div class="card card-left">
-      <img src="mootasim.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im mootasim</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
+      <div class="member-card">
+        <div class="member-card-name">mootasim</div>
+        <div class="member-card-role">*certified engineer</div>
+        <div class="member-card-bio">yo i like latinas and one time i lived in liverpool here is some info about
+          mbrother khalid</div>
       </div>
-    </div>
-    <div class="card card-left">
-      <img src="mootasim.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im mootasim</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
+      <div class="member-card">
+        <div class="member-card-name">mootasim</div>
+        <div class="member-card-role">*certified engineer</div>
+        <div class="member-card-bio">yo i like latinas and one time i lived in liverpool here is some info about
+          mbrother khalid</div>
       </div>
-    </div>
-    <div class="card card-left">
-      <img src="mootasim.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im mootasim</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
+      <div class="member-card">
+        <div class="member-card-name">mootasim</div>
+        <div class="member-card-role">*certified engineer</div>
+        <div class="member-card-bio">yo i like latinas and one time i lived in liverpool here is some info about
+          mbrother khalid</div>
       </div>
-    </div>
-    <div class="card card-left">
-      <img src="mootasim.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im mootasim</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
+      <div class="member-card">
+        <div class="member-card-name">mootasim</div>
+        <div class="member-card-role">*certified engineer</div>
+        <div class="member-card-bio">yo i like latinas and one time i lived in liverpool here is some info about
+          mbrother khalid</div>
       </div>
-    </div>
-    <div class="card card-left">
-      <img src="mootasim.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im mootasim</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
+      <div class="member-card">
+        <div class="member-card-name">mootasim</div>
+        <div class="member-card-role">*certified engineer</div>
+        <div class="member-card-bio">yo i like latinas and one time i lived in liverpool here is some info about
+          mbrother khalid</div>
       </div>
-    </div>
-    <div class="card card-left">
-      <img src="mootasim.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im mootasim</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
+      <div class="member-card">
+        <div class="member-card-name">mootasim</div>
+        <div class="member-card-role">*certified engineer</div>
+        <div class="member-card-bio">yo i like latinas and one time i lived in liverpool here is some info about
+          mbrother khalid</div>
       </div>
-    </div>
-    <div class="card card-left">
-      <img src="mootasim.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im mootasim</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
+      <div class="member-card">
+        <div class="member-card-name">mootasim</div>
+        <div class="member-card-role">*certified engineer</div>
+        <div class="member-card-bio">yo i like latinas and one time i lived in liverpool here is some info about
+          mbrother khalid</div>
       </div>
-    </div>
-    <div class="card card-left">
-      <img src="mootasim.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im mootasim</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
+      <div class="member-card">
+        <div class="member-card-name">mootasim</div>
+        <div class="member-card-role">*certified engineer</div>
+        <div class="member-card-bio">yo i like latinas and one time i lived in liverpool here is some info about
+          mbrother khalid</div>
       </div>
-    </div>
-    <div class="card card-left">
-      <img src="mootasim.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im mootasim</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
+      <div class="member-card">
+        <div class="member-card-name">mootasim</div>
+        <div class="member-card-role">*certified engineer</div>
+        <div class="member-card-bio">yo i like latinas and one time i lived in liverpool here is some info about
+          mbrother khalid</div>
       </div>
-    </div>
-    <div class="card card-left">
-      <img src="mootasim.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im mootasim</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
-      </div>
-    </div>
-    <div class="card card-left">
-      <img src="mootasim.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im mootasim</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
-      </div>
-    </div>
-    <div class="card card-left">
-      <img src="mootasim.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im mootasim</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
-      </div>
-    </div>
-    <div class="card card-left">
-      <img src="mootasim.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im mootasim</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
-      </div>
-    </div>
-    <div class="card card-left">
-      <img src="mootasim.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im mootasim</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
-      </div>
-    </div>
-    <div class="card card-left">
-      <img src="mootasim.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im mootasim</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
-      </div>
-    </div>
-    <div class="card card-left">
-      <img src="mootasim.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im mootasim</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
-      </div>
-    </div>
-    <div class="card card-left">
-      <img src="mootasim.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im mootasim</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
-      </div>
-    </div>
-    <div class="card card-left">
-      <img src="mootasim.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im mootasim</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
-      </div>
-    </div>
-    <div class="card card-left">
-      <img src="mootasim.jpg" alt="member-element">
-      <div class="card-info">
-        <h2 class="name">hello im mootasim</h2>
-        <p class="position">i do all nothing</p>
-        <p class="bio">
-          as a team leader two i have a lot of experience in the field.
-        </p>
+      <div class="member-card">
+        <div class="member-card-name">mootasim</div>
+        <div class="member-card-role">*certified engineer</div>
+        <div class="member-card-bio">yo i like latinas and one time i lived in liverpool here is some info about
+          mbrother khalid</div>
       </div>
     </div>
 
   </div>
 
+
+  <footer>
+    <p class="footer-text">Copyright © 2024 Dev Team. All rights reserved.</p>
+    <p class="footer-text footer-made-by">website made with love by abdalrahman mahasnh
+      <a class="footer-link" href="https://google.com">website</a>
+    </p>
+  </footer>
 </body>
 
 </html>
