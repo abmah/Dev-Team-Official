@@ -102,35 +102,61 @@ gsap.fromTo('.scroll-more-text',
 //     pin: true
 //   },
 // })
+// Create a media query-based GSAP animation setup
+// Create a media query-based GSAP animation setup
+gsap.matchMedia().add("(min-width: 900px)", () => {
 
-gsap.set('.card img.swipeimage', { yPercent: -50, xPercent: -50 });
+  // This block will only run when the screen width is 900px or larger
+  let activeImage = null;
 
-let activeImage;
-gsap.utils.toArray(".card").forEach((el) => {
-  let image = el.querySelector('img.swipeimage'),
-    setX, setY,
-    align = e => {
+  // Set up the image positioning for all cards
+  gsap.set('.card img.swipeimage', { yPercent: -50, xPercent: -50 });
+
+  // Initialize the animation logic for each card
+  gsap.utils.toArray(".card").forEach((el) => {
+    let image = el.querySelector('img.swipeimage');
+
+    // Create the fade-in tween
+    const fade = gsap.to(image, { autoAlpha: 1, ease: "none", paused: true, onReverseComplete: () => gsap.set(image, { autoAlpha: 0 }) });
+
+    // Define quickTo for smooth x and y movement
+    let setX = gsap.quickTo(image, "x", { duration: 0.6, ease: "power3.out" });
+    let setY = gsap.quickTo(image, "y", { duration: 0.6, ease: "power3.out" });
+
+    // Mouseenter animation: start fading in and following the mouse
+    el.addEventListener('mouseenter', (e) => {
+      fade.play();
+      if (activeImage) {
+        gsap.set(image, { x: gsap.getProperty(activeImage, "x"), y: gsap.getProperty(activeImage, "y") });
+      }
+      activeImage = image;
+
+      // Immediately set the position based on mouse position and start easing
       setX(e.clientX);
       setY(e.clientY);
-    },
-    startFollow = () => document.addEventListener("mousemove", align),
-    stopFollow = () => document.removeEventListener("mousemove", align),
-    fade = gsap.to(image, { autoAlpha: 1, ease: "none", paused: true, onReverseComplete: stopFollow });
 
-  el.addEventListener('mouseenter', (e) => {
-    fade.play();
-    startFollow();
-    if (activeImage) { // if there's an actively-animating one, we should match its position here
-      gsap.set(image, { x: gsap.getProperty(activeImage, "x"), y: gsap.getProperty(activeImage, "y") });
-    }
-    activeImage = image;
-    setX = gsap.quickTo(image, "x", { duration: 0.6, ease: "power3" }),
-      setY = gsap.quickTo(image, "y", { duration: 0.6, ease: "power3" })
-    align(e);
+      // Update the image's position on mouse move
+      document.addEventListener('mousemove', (moveEvent) => {
+        setX(moveEvent.clientX);
+        setY(moveEvent.clientY);
+      });
+    });
+
+    // Mouseleave animation: fade out the image
+    el.addEventListener('mouseleave', () => {
+      fade.reverse();  // Reverse the fade animation
+      document.removeEventListener('mousemove', null);  // Stop following the mouse
+    });
   });
 
-  el.addEventListener('mouseleave', () => fade.reverse());
-
+  // Cleanup logic that will automatically run when the media query no longer matches
+  return () => {
+    // Stop all animations and remove event listeners if needed
+    gsap.utils.toArray(".card").forEach((el) => {
+      let image = el.querySelector('img.swipeimage');
+      gsap.killTweensOf(image);  // Kill any ongoing tweens
+    });
+  };
 });
 
 

@@ -125,6 +125,7 @@ body {
 
 .above-the-fold h1 {
   margin: 0;
+  padding: 0;
   font-size: 7vw;
   color: aliceblue;
   /* Uncomment to apply a different blend mode */
@@ -138,6 +139,8 @@ body {
 
 .above-the-fold-text {
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 /* Scroll More Text - Positioned at the bottom of the above-the-fold section */
@@ -169,7 +172,7 @@ body {
 /* Global Headings */
 h1 {
   position: relative;
-  height: 80px;
+  /* height: 80px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -312,6 +315,62 @@ span {
   margin: 0 auto;
 }
 
+@media screen and (max-width:900px) {
+  .card img.swipeimage {
+    opacity: 1;
+    width: 100%;
+    height: 30px;
+    object-fit: cover;
+    z-index: 0;
+    /* position: absolute; */
+    opacity: 0;
+  }
+
+
+  .card-info {
+    height: max-content;
+
+    max-width: 600px;
+
+  }
+
+  .card {
+    position: static;
+    flex-direction: column;
+
+
+    margin-bottom: 100px;
+    max-width: 400px;
+    min-height: 400px;
+    margin: 0 auto;
+    margin-bottom: 200px;
+  }
+
+  .cards-container {
+    width: 100%;
+  }
+
+  .card {
+    flex-direction: column;
+    height: 300px;
+  }
+
+  .card-info {
+    width: 100%;
+    margin: 0;
+  }
+
+  .card img.swipeimage {
+    width: 100%;
+    height: 300px;
+  }
+
+  .card .bio {
+    font-size: 1.5rem;
+  }
+
+}
+
 /* Responsive Styles for Smaller Screens */
 @media screen and (max-width: 768px) {
   .card {
@@ -321,9 +380,9 @@ span {
 
 
 .our-team {
-  height: 1200px;
+  /* height: 1200px; */
   background-color: black;
-
+  padding-bottom: 50px;
 }
 
 
@@ -370,8 +429,12 @@ span {
 
 
 /* header menu button */
+.menu-toggle {
+  display: none
+}
 
 .nav-container {
+  display: none;
   position: fixed;
   right: 90px;
   top: 20px;

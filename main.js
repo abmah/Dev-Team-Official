@@ -169,14 +169,24 @@ gsap.to(camera.position, {
 
 
 
+// Create a media query-based GSAP animation setup
+gsap.matchMedia().add("(min-width: 900px)", () => {
 
-gsap.to('.founders', {
-  scrollTrigger: {
-    trigger: '.our-founders-text',
-    start: 'top top',
-    end: '+=1200',
-    scrub: 1,
-    // markers: true,
-    pin: true
-  },
-})
+  // This block will only run when the screen width is 900px or larger
+  gsap.to('.founders', {
+    scrollTrigger: {
+      trigger: '.our-founders-text',
+      start: 'top top',
+      end: '+=1200',
+      scrub: 1,
+      // markers: true, // Uncomment if you want to see markers for debugging
+      pin: true
+    },
+  });
+
+  // Cleanup logic that will automatically run when the media query no longer matches
+  return () => {
+    // ScrollTrigger will automatically handle the cleanup of pinned elements and animations
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  };
+});
